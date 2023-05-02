@@ -1,0 +1,3 @@
+[submodule "embedbase"]
+	path = embedbase
+	url = https://github.com/different-ai/embedbase
