@@ -3,6 +3,7 @@
 install:
 	poetry lock -n
 	poetry install -n
+	
 
 #* Formatters
 .PHONY: codestyle
