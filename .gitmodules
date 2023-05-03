@@ -1,3 +1,0 @@
-[submodule "embedbase"]
-	path = monorepo
-	url = https://github.com/different-ai/embedbase
