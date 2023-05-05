@@ -10,7 +10,7 @@ import pandas as pd
 import pytest
 import uuid
 from embedbase.database.base import VectorDatabase
-from qdrant_db import Qdrant
+from embedbase_qdrant import Qdrant
 unit_testing_dataset = "unit_test"
 vector_databases: List[VectorDatabase] = [Qdrant(host="localhost", port=6333)]
 

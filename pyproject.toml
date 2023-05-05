@@ -7,7 +7,7 @@ create = true
 in-project = true
 
 [tool.poetry]
-name = "embedbase-qdrant"
+name = "embedbase_qdrant"
 version = "1.0.0"
 description = "Embedbase + Qdrant - Advanced and high-performant vector similarity search technology in your AI applications."
 readme = "README.md"
@@ -16,7 +16,9 @@ license = "MIT"
 repository = "https://github.com/different-ai/embedbase-qdrant"
 homepage = "https://github.com/different-ai/embedbase-qdrant"
 keywords = ["embeddings", "machine learning", "artificial intelligence"]
-
+packages = [
+    {include = "embedbase_qdrant"},
+]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",

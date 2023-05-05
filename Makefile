@@ -16,7 +16,7 @@ release: ## [Local development] Release a new version of the API.
 test: ## [Local development] Run all Python tests with pytest.
 	docker-compose up -d
 	while ! curl -s localhost:6333 > /dev/null; do sleep 1; done
-	poetry run pytest test_hard.py; docker-compose down
+	poetry run pytest tests/test_db.py; docker-compose down
 	@echo "Done testing"
 
 #* Installation
