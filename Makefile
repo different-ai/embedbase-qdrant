@@ -1,3 +1,15 @@
+VERSION="$(shell python3 -c 'import toml; print(toml.load("pyproject.toml")["tool"]["poetry"]["version"])')"
+
+#* Release
+
+release: ## [Local development] Release a new version of the API.
+	@echo "Releasing version ${VERSION}"; \
+	read -p "Commit content:" COMMIT; \
+	git add .; \
+	echo "Committing '${VERSION}: $$COMMIT'"; \
+	git commit -m "Release ${VERSION}: $$COMMIT"; \
+	git push origin main
+	@echo "Done, check '\033[0;31mhttps://github.com/different-ai/embedbase-qdrant/actions\033[0m'"
 
 #* Testing
 

@@ -1,0 +1,3 @@
+embedbase
+sentence-transformers
+git+https://github.com/different-ai/embedbase-qdrant.git

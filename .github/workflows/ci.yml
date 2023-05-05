@@ -28,4 +28,37 @@ jobs:
 
       - name: Run tests
         run: |
-          poetry run pytest test_integration.py
+          make test
+
+      - uses: actions-ecosystem/action-regex-match@v2
+        id: regex-match
+        with:
+          text: ${{ github.event.head_commit.message }}
+          regex: "^Release ([^ ]+)"
+
+      - name: Build package
+        run: |
+          poetry build
+
+      - name: Publish to PyPI
+        if: ${{ steps.regex-match.outputs.match != '' }}
+        run: |
+          poetry config pypi-token.pypi ${{ secrets.PYPI_API_TOKEN }}
+          poetry publish
+
+      - uses: rickstaa/action-create-tag@v1
+        if: ${{ steps.regex-match.outputs.match != '' }}
+        id: "tag_create"
+        with:
+          tag: ${{ env.version }}
+          tag_exists_error: true
+          message: "Release ${{ steps.regex-match.outputs.group1 }}"
+
+      - name: Create Release
+        if: ${{ steps.regex-match.outputs.match != '' }}
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.version }}
+          name: ${{ env.version }}
+          draft: false
+          prerelease: false
