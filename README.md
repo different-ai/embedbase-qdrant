@@ -36,6 +36,10 @@ pip install embedbase-qdrant
 
 ## Usage
 
+```bash
+pip install openai uvicorn
+```
+
 ```python
 import os
 import uvicorn
@@ -47,6 +51,10 @@ app = get_app().use_embedder(Openai(os.environ["OPENAI_API_KEY"])).use_db(Qdrant
 
 if __name__ == "__main__":
     uvicorn.run(app)
+```
+
+```bash
+python3 main.py
 ```
 
 ![pika-1683309528643-1x](https://user-images.githubusercontent.com/25003283/236533294-3cd481ac-6437-47b6-ae58-d5a9a6e0e4bf.png)
