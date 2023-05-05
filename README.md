@@ -46,8 +46,10 @@ from embedbase_qdrant import Qdrant
 app = get_app().use_embedder(Openai(os.environ["OPENAI_API_KEY"])).use_db(Qdrant()).run()
 
 if __name__ == "__main__":
-    uvicorn.run(app, reload=True)
+    uvicorn.run(app)
 ```
+
+![pika-1683309528643-1x](https://user-images.githubusercontent.com/25003283/236533294-3cd481ac-6437-47b6-ae58-d5a9a6e0e4bf.png)
 
 Check out other [examples](./examples/main.py) and [documentation](https://docs.embedbase.xyz/sdk) for more details.
 
