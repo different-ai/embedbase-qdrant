@@ -41,7 +41,6 @@ import os
 import uvicorn
 from embedbase import get_app
 from embedbase.embedding.openai import Openai
-from sentence_transformers import SentenceTransformer
 from embedbase_qdrant import Qdrant
 
 app = get_app().use_embedder(Openai(os.environ["OPENAI_API_KEY"])).use_db(Qdrant()).run()
