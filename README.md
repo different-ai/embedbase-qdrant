@@ -53,6 +53,14 @@ if __name__ == "__main__":
     uvicorn.run(app)
 ```
 
+Start a local Qdrant:
+
+```bash
+docker-compose up -d
+```
+
+Run Embedbase:
+
 ```bash
 python3 main.py
 ```
