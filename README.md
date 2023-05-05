@@ -1,22 +1,30 @@
-# embedbase-qdrant
 
 <div align="center">
-
-[Embedbase](https://github.com/different-ai/embedbase) + [Qdrant](https://qdrant.tech) - Advanced and high-performant vector similarity search technology in your AI applications 
-    <br>
+    <h3 align="center">embedbase-qdrant</h3>
+    <p align="center">
+        <p align="center">
+            <a href="https://github.com/different-ai/embedbase">Embedbase</a> + <a href="https://qdrant.tech">Qdrant</a>
+            Advanced and high-performant vector similarity search technology in your AI applications 
+        </p>
+    </p>
     <br>
     ⚠️ Status: Alpha release ⚠️
     <br>
     <br>
     <a href="https://discord.gg/pMNeuGrDky"><img alt="Discord" src="https://img.shields.io/discord/ 1066022656845025310?color=black&style=for-the-badge"></a>
     <a href="https://badge.fury.io/py/embedbase-qdrant"><img alt="PyPI" src="https://img.shields.io/pypi/v/embedbase-qdrant?color=black&style=for-the-badge"></a>
-
+    <br>
+    <div align="center">
+        <p align="center">
+            If you have any feedback or issues, please let us know by opening an issue or contacting us on <a href="https://discord.gg/pMNeuGrDky">discord</a>.
+        </p>
+        <p align="center">
+            Please refer to the <a href="https://docs.embedbase.xyz/sdk">documentation</a>
+        </p>
+    </div>
 
 </div>
 
-If you have any feedback or issues, please let us know by opening an issue or contacting us on [discord](https://discord.gg/pMNeuGrDky).
-
-Please refer to the [documentation](https://docs.embedbase.xyz/sdk).
 
 ## Getting started
 
@@ -36,9 +44,7 @@ from embedbase.embedding.openai import Openai
 from sentence_transformers import SentenceTransformer
 from embedbase_qdrant import Qdrant
 
-app = get_app().use_embedder(Openai(
-    os.environ["OPENAI_API_KEY"],
-)).use_db(Qdrant()).run()
+app = get_app().use_embedder(Openai(os.environ["OPENAI_API_KEY"])).use_db(Qdrant()).run()
 
 if __name__ == "__main__":
     uvicorn.run(app, reload=True)
