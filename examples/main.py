@@ -1,6 +1,6 @@
+import uvicorn
 from embedbase import get_app
 from embedbase.embedding.base import Embedder
-import uvicorn
 from sentence_transformers import SentenceTransformer
 from embedbase_qdrant import Qdrant
 
@@ -42,4 +42,4 @@ class LocalEmbedder(Embedder):
 app = get_app().use_embedder(LocalEmbedder()).use_db(Qdrant()).run()
 
 if __name__ == "__main__":
-    uvicorn.run(app, reload=True)
+    uvicorn.run(app)
