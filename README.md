@@ -19,7 +19,7 @@
             If you have any feedback or issues, please let us know by opening an issue or contacting us on <a href="https://discord.gg/pMNeuGrDky">discord</a>.
         </p>
         <p align="center">
-            Please refer to the <a href="https://docs.embedbase.xyz/sdk">documentation</a>
+            Please refer to the <a href="https://docs.embedbase.xyz">documentation</a>
         </p>
     </div>
 
@@ -67,5 +67,5 @@ python3 main.py
 
 ![pika-1683309528643-1x](https://user-images.githubusercontent.com/25003283/236533294-3cd481ac-6437-47b6-ae58-d5a9a6e0e4bf.png)
 
-Check out other [examples](./examples/main.py) and [documentation](https://docs.embedbase.xyz/sdk) for more details.
+Check out other [examples](./examples/main.py) and [documentation](https://docs.embedbase.xyz) for more details.
 
