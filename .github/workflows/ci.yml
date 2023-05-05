@@ -50,7 +50,7 @@ jobs:
         if: ${{ steps.regex-match.outputs.match != '' }}
         id: "tag_create"
         with:
-          tag: ${{ env.version }}
+          tag: ${{ steps.regex-match.outputs.group1 }}
           tag_exists_error: true
           message: "Release ${{ steps.regex-match.outputs.group1 }}"
 
@@ -58,7 +58,7 @@ jobs:
         if: ${{ steps.regex-match.outputs.match != '' }}
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ env.version }}
-          name: ${{ env.version }}
+          tag_name: ${{ steps.regex-match.outputs.group1 }}
+          name: ${{ steps.regex-match.outputs.group1 }}
           draft: false
           prerelease: false
