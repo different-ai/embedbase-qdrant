@@ -34,7 +34,9 @@ To install the Embedbase Qdrant library, run the following command:
 pip install embedbase-qdrant
 ```
 
-## Usage
+## Quick tour
+
+Let's try Embedbase + Qdrant with an OpenAI `embedder`:
 
 ```bash
 pip install openai uvicorn
@@ -47,6 +49,7 @@ from embedbase import get_app
 from embedbase.embedding.openai import Openai
 from embedbase_qdrant import Qdrant
 
+# here we use openai to create embeddings and qdrant to store the data
 app = get_app().use_embedder(Openai(os.environ["OPENAI_API_KEY"])).use_db(Qdrant()).run()
 
 if __name__ == "__main__":
