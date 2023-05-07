@@ -39,7 +39,7 @@ class LocalEmbedder(Embedder):
         return embeddings.tolist() if isinstance(data, list) else [embeddings.tolist()]
 
 
-app = get_app().use_embedder(LocalEmbedder()).use_db(Qdrant()).run()
+app = get_app().use_embedder(LocalEmbedder()).use_db(Qdrant(dimensions=384)).run()
 
 if __name__ == "__main__":
     uvicorn.run(app)

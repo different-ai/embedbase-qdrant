@@ -8,7 +8,7 @@ in-project = true
 
 [tool.poetry]
 name = "embedbase_qdrant"
-version = "1.0.0"
+version = "1.0.1"
 description = "Embedbase + Qdrant - Advanced and high-performant vector similarity search technology in your AI applications."
 readme = "README.md"
 authors = ["Different AI <louis@embedbase.xyz>"]

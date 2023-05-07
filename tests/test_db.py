@@ -242,3 +242,37 @@ async def test_batch_select_large_content():
             user_id=None,
         )
         assert len(list(results)) == len(d), f"failed for {vector_database}"
+
+@pytest.mark.asyncio
+async def test_distinct():
+    d = []
+    for i in range(1000):
+        d.append("foo")
+    hashes = [hashlib.sha256(x.encode()).hexdigest() for x in d]
+    for vector_database in vector_databases:
+        # add documents
+        await vector_database.clear(unit_testing_dataset)
+        await vector_database.update(
+            pd.DataFrame(
+                [
+                    {
+                        "data": x,
+                        "embedding": [0.0] * 1536,
+                        "id": str(uuid.uuid4()),
+                        "metadata": {"test": "test"},
+                        "hash": hashes[i],
+                    }
+                    for i, x in enumerate(d)
+                ],
+                columns=["data", "embedding", "id", "hash", "metadata"],
+            ),
+            unit_testing_dataset,
+        )
+        results = await vector_database.select(
+            hashes=list(set(hashes)),
+            dataset_id=unit_testing_dataset,
+            user_id=None,
+        )
+        # should only return one result
+        assert len(list(results)) == 1, f"failed for {vector_database}"
+
